@@ -1,46 +1,31 @@
 
-package com.example.AP.Entity;
+package com.example.AP.Dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
-@Entity
-public class Educacion {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class DtoEducacion {
 
-    private int id;
-
+    @NotBlank
     private String tituloEdu;
-
+    @NotBlank
     private String fechaEdu;
-
+    @NotBlank
     private String descripcionEdu;
-
+    @NotBlank
     private String InstitutoEdu;
-
+    @NotBlank
     private String imagenEdu;
 
-    public Educacion() {
+    public DtoEducacion() {
     }
 
-    public Educacion(String tituloEdu, String fechaEdu, String descripcionEdu, String InstitutoEdu, String imagenEdu) {
+    public DtoEducacion(String tituloEdu, String fechaEdu, String descripcionEdu, String InstitutoEdu, String imagenEdu) {
         this.tituloEdu = tituloEdu;
         this.fechaEdu = fechaEdu;
         this.descripcionEdu = descripcionEdu;
         this.InstitutoEdu = InstitutoEdu;
         this.imagenEdu = imagenEdu;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTituloEdu() {
@@ -82,7 +67,7 @@ public class Educacion {
     public void setImagenEdu(String imagenEdu) {
         this.imagenEdu = imagenEdu;
     }
-
+    
+        
+    
 }
-
-

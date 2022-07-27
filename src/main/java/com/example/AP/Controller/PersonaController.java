@@ -13,27 +13,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/persona")
+@CrossOrigin(origins = "http://localhost:4200" )
+
 public class PersonaController {
     
    @Autowired IPersona Ipersona;
    
    
     
-@GetMapping("/traer")
+@GetMapping("personas/traer")
     public List<Persona> getPersona(){
       return Ipersona.getPersona();
     }
 
    @PreAuthorize("hasRole ('ADMIN')")
-    @PostMapping("/crear")
+    @PostMapping("/personas/crear")
     public String createPersona (@RequestBody Persona persona){
         Ipersona.savePersona(persona);
         return "La persona fue creada con exito";
@@ -41,7 +40,7 @@ public class PersonaController {
     
     
      @PreAuthorize("hasRole ('ADMIN')")
-    @DeleteMapping ("/borrar/{id}")
+    @DeleteMapping ("/personas/borrar/{id}")
     public String deletePersona(@PathVariable Long id){
         Ipersona.deletePersona(id);
         return "La persona fue eliminada con exito";
@@ -49,7 +48,7 @@ public class PersonaController {
     
     
      @PreAuthorize("hasRole ('ADMIN')")
-    @PutMapping("/editar/{id}")
+    @PutMapping("/personas/editar/{id}")
     public Persona editPersona(@PathVariable Long id,
                                                 @RequestParam ("apellido")String nuevoApellido,
                                                 @RequestParam ("nombre")String nuevoNombre,
@@ -67,5 +66,10 @@ public class PersonaController {
     Ipersona.savePersona(persona);
     return persona;
                                                 
+    }
+    
+      @GetMapping("personas/traer/perfil")
+    public Persona findPersona(){
+        return Ipersona.findPersona((long)1);
     }
 }

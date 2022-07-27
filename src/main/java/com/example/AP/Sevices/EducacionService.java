@@ -1,41 +1,49 @@
 
 package com.example.AP.Sevices;
 
-
 import com.example.AP.Entity.Educacion;
-import com.example.AP.Interface.IEducacion;
 import com.example.AP.Repository.EducacionRepo;
 import java.util.List;
+import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 @Transactional
-public class EducacionService implements IEducacion{
- 
-       @Autowired EducacionRepo educacionRepo;
+public class EducacionService {
+
+    @Autowired
+    EducacionRepo educacionRepo;
+
+    public List<Educacion> list() {
+        return educacionRepo.findAll();
+    }
+
+    public Optional<Educacion> getOne(int id) {
+        return educacionRepo.findById(id);
+    }
     
-
-    @Override
-    public List<Educacion> getEducacion() {
-        List<Educacion> educacion = educacionRepo.findAll();
-        return educacion;
+    
+    public Optional<Educacion> getByTituloEdu(String tituloEdu) {
+        return educacionRepo.findByTituloEdu(tituloEdu);
     }
 
-    @Override
-    public void saveEducacion(Educacion educacion) {
-        educacionRepo.save(educacion);
+    public void save(Educacion educ) {
+        educacionRepo.save(educ);
     }
 
-    @Override
-    public void deleteEducacion(Long id) {
+    public void delete(int id) {
         educacionRepo.deleteById(id);
     }
 
-    @Override
-    public Educacion findEducacion(Long id) {
-        Educacion educacion = educacionRepo.findById(id).orElseThrow(null);
-        return educacion;
+    public boolean existsById(int id) {
+        return educacionRepo.existsById(id);
     }
+    
+     public boolean existsByTituloEdu(String tituloEdu) {
+        return educacionRepo.existsByTituloEdu(tituloEdu);
+    }
+
 }

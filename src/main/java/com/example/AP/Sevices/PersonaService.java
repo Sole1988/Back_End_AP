@@ -5,12 +5,10 @@ import com.example.AP.Entity.Persona;
 import com.example.AP.Interface.IPersona;
 import com.example.AP.Repository.PersonaRepo;
 import java.util.List;
-import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@Transactional
 public class PersonaService implements IPersona {
 
     @Autowired PersonaRepo  personaRepo;

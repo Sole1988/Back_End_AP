@@ -1,21 +1,20 @@
 
 package com.example.AP.Entity;
 
-import java.io.Serializable;
-import java.util.List;
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
 
 @Entity
-public class Persona implements Serializable {
+public class Persona {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
    
     private Long id;
@@ -30,16 +29,7 @@ public class Persona implements Serializable {
 
     private String imagen;
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idEdu")
-    private List<Educacion> educacionList;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idSkills")
-    private List<Skills> skillsList;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idExp")
-    private List<Experiencia> experienciaList;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idProyecto")
-    private List<Proyectos> proyectosList;
-     
-    
+   
 
     public Persona() {
     }

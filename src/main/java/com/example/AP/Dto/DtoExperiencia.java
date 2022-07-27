@@ -1,37 +1,20 @@
 
-package com.example.AP.Entity;
+package com.example.AP.Dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
-@Entity
-public class Experiencia  {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
- 
-    private int id;
-
+public class DtoExperiencia {
+    @NotBlank
     private String empresaExp;
-
+    @NotBlank
     private String descripcionExp;
 
-    public Experiencia() {
+    public DtoExperiencia() {
     }
 
-    public Experiencia(String empresaExp, String descripcionExp) {
+    public DtoExperiencia(String empresaExp, String descripcionExp) {
         this.empresaExp = empresaExp;
         this.descripcionExp = descripcionExp;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getEmpresaExp() {
@@ -49,5 +32,7 @@ public class Experiencia  {
     public void setDescripcionExp(String descripcionExp) {
         this.descripcionExp = descripcionExp;
     }
-
+    
 }
+
+    

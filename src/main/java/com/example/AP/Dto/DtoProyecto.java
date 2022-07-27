@@ -1,43 +1,25 @@
 
-package com.example.AP.Entity;
+package com.example.AP.Dto;
 
-import java.io.Serializable;
+import javax.validation.constraints.NotBlank;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Entity
-public class Proyectos implements Serializable{
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
-    private Long idProyecto;
-
+public class DtoProyecto {
+        
+    @NotBlank
     private String tituloProyecto;
-
+    @NotBlank
     private String fechaProyecto;
-
+    @NotBlank
     private String descripcionProyecto;
 
-    public Proyectos() {
+    public DtoProyecto() {
     }
 
-    public Proyectos(Long idProyecto, String tituloProyecto, String fechaProyecto, String descripcionProyecto) {
-        this.idProyecto = idProyecto;
+    public DtoProyecto(String tituloProyecto, String fechaProyecto, String descripcionProyecto) {
         this.tituloProyecto = tituloProyecto;
         this.fechaProyecto = fechaProyecto;
         this.descripcionProyecto = descripcionProyecto;
-    }
-
-    public Long getIdProyecto() {
-        return idProyecto;
-    }
-
-    public void setIdProyecto(Long idProyecto) {
-        this.idProyecto = idProyecto;
     }
 
     public String getTituloProyecto() {
@@ -63,5 +45,7 @@ public class Proyectos implements Serializable{
     public void setDescripcionProyecto(String descripcionProyecto) {
         this.descripcionProyecto = descripcionProyecto;
     }
+
+    
 
 }
