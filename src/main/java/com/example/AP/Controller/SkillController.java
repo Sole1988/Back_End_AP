@@ -67,7 +67,7 @@ public class SkillController {
         if (skillService.existsByNombreSkill(dtoskill.getNombreSkill())) 
             return new ResponseEntity(new Mensaje("Esa skill existe"), HttpStatus.BAD_REQUEST);
         
-      Skill skill = new Skill(dtoskill.getNombreSkill(), dtoskill.getPorcentajeSkill(), dtoskill.getImagenSkill());
+      Skill skill = new Skill(dtoskill.getNombreSkill(),dtoskill.getPorcentajeSkill(), dtoskill.getImagenSkill());
         skillService.save(skill);
 
         return new ResponseEntity(new Mensaje("Skill agregada"), HttpStatus.OK);

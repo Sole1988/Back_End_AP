@@ -30,6 +30,7 @@ public class PersonaController {
     public List<Persona> getPersona(){
       return Ipersona.getPersona();
     }
+    
 
    @PreAuthorize("hasRole ('ADMIN')")
     @PostMapping("/personas/crear")

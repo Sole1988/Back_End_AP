@@ -20,7 +20,7 @@ public class Skill {
 
     public Skill(String nombreSkill, String porcentajeSkill, String imagenSkill) {
         this.nombreSkill = nombreSkill;
-        this.porcentajeSkill = porcentajeSkill;
+        this.porcentajeSkill=porcentajeSkill;
         this.imagenSkill = imagenSkill;
     }
 
@@ -55,7 +55,5 @@ public class Skill {
     public void setImagenSkill(String imagenSkill) {
         this.imagenSkill = imagenSkill;
     }
-    
-    
-    
 }
+  

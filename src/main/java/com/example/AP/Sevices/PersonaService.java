@@ -36,6 +36,10 @@ public class PersonaService implements IPersona {
         return persona;
     }
 
+    public boolean existsById(int id) {
+        return personaRepo.existsById(id);
+    }
+    
 }
     
     
