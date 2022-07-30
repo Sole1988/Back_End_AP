@@ -1,5 +1,6 @@
 
-package com.example.AP.Security.MainSecurity;
+package com.example.AP.Security;
+
 
 import com.example.AP.Security.Service.UserDetailsServiceImpl;
 import com.example.AP.Security.jwt.JwtEntryPoint;
