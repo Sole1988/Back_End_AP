@@ -13,27 +13,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@CrossOrigin(origins = "https://apmattosfront-b1f8a.web.app")
-
+@RequestMapping("/personas")
+@CrossOrigin
 public class PersonaController {
     
    @Autowired IPersona Ipersona;
    
    
     
-@GetMapping("/personas/traer")
+@GetMapping("/traer")
     public List<Persona> getPersona(){
       return Ipersona.getPersona();
     }
     
 
    @PreAuthorize("hasRole ('ADMIN')")
-    @PostMapping("/personas/crear")
+    @PostMapping("/crear")
     public String createPersona (@RequestBody Persona persona){
         Ipersona.savePersona(persona);
         return "La persona fue creada con exito";
@@ -41,7 +42,7 @@ public class PersonaController {
     
     
      @PreAuthorize("hasRole ('ADMIN')")
-    @DeleteMapping ("/personas/borrar/{id}")
+    @DeleteMapping ("/borrar/{id}")
     public String deletePersona(@PathVariable Long id){
         Ipersona.deletePersona(id);
         return "La persona fue eliminada con exito";
@@ -49,7 +50,7 @@ public class PersonaController {
     
     
      @PreAuthorize("hasRole ('ADMIN')")
-    @PutMapping("/personas/editar/{id}")
+    @PutMapping("/editar/{id}")
     public Persona editPersona(@PathVariable Long id,
                                                 @RequestParam ("apellido")String nuevoApellido,
                                                 @RequestParam ("nombre")String nuevoNombre,
@@ -69,7 +70,7 @@ public class PersonaController {
                                                 
     }
     
-      @GetMapping("/personas/traer/perfil")
+      @GetMapping("/traer/perfil")
     public Persona findPersona(){
         return Ipersona.findPersona((long)1);
     }
